@@ -1,6 +1,19 @@
-# Mutagenic: An Embedding-Based Approach to Protein Masking for Functional Redesign
+<h1 align="center">
+    Mutagenic: An Embedding-Based Approach to Protein Masking for Functional Redesign
+</h1>
 
-![Mutagenic Poster](mutagenic_poster.png)
+<p align="center">
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue"></a>
+</p>
+
+![Mutagenic Poster](images/mutagenic_poster.png)
+
+<p align="center">
+  <a href="#introduction">Introduction</a> •
+  <a href="#setup_and_installation">Setup and Installation</a> •
+  <a href="#code">Running the Code</a> •
+  <a href="#citation">Citation</a> •
+</p>
 
 # Introduction
 
@@ -9,19 +22,16 @@ This repository contains the code associated with the research paper [Mutagenic:
 In MUTAGENIC, we investigate the following question: How can we efficiently identify residues to
 edit in the engineering of proteins with specific target functions? More formally, let $F$ denote a set of possible protein functions. Given a protein sequence $s = s_1s_2\dots s_N$ composed of amino acids $s_i$, a function f $\in F$ and a target function f' $\in F$, our goal is to return a new protein sequence s' with functionality f'.
 
-
-
 We propose to tackle this problem by leveraging the breakthrough capabilities of protein foundation models, specifically the recently released [ESM-3](https://github.com/evolutionaryscale/esm) model. Inspired by interpretability approaches in the natural language processing literature, we leverage the representational
 learning capabilities of ESM-3 to create a novel pipeline that involves (1) masking the resides of the input protein and then (2) using ESM-3 to fill in these masks to achieve the target functionality. In particular, we propose to identify these masking sites via embedding-based similarity scores from the ESM-3 model. Please see our associated tiny paper for more details.  
 
-
 # Setup & Installation
 
-### Compute Requirements
+## Compute Requirements
 
 We ran all of our scripts on a machine equipped with a single Nvidia A100 GPU. Due to the size of the ESM-3 foundation model, we note that our scripts may not run on machines with less GPU memory. 
 
-### Getting Started
+## Getting Started
 
 To reproduce our experimental results, please first clone this repository on your machine
 
@@ -41,7 +51,7 @@ And then activate the environment with the command:
 source venv/bin/activate
 ```
 
-### Installing Dependencies
+## Installing Dependencies
 
 Once you have the virtualenv set up and `cd` into the repo, you can install all of the necessary software dependencies via the following command:
 
@@ -49,7 +59,7 @@ Once you have the virtualenv set up and `cd` into the repo, you can install all 
 pip3 install -r requirements.txt
 ```
 
-### Huggingface Hub Login
+## Huggingface Hub Login
 
 Finally, you will need to authenticate to Huggingface Hub to be able to use the ESM-3 model. After setting up a Huggingface Hub access token (if necessary), please run the following command and enter in your token when prompted:
 
@@ -73,7 +83,7 @@ python3 masking_pipeline.py
 
 And that's it! Please file an issue or reach out to us via email if you encounter any issues. 
 
-## Citation
+# Citation
 ```
 @inproceedings{pan2025mutagenic,
   title={Mutagenic: An Embedding-Based Approach to Protein Masking for Functional Redesign},
@@ -82,3 +92,7 @@ And that's it! Please file an issue or reach out to us via email if you encounte
   year={2025}
 }
 ```
+
+# License
+
+<a href="LICENSE">MIT License</a>
