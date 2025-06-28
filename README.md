@@ -10,12 +10,12 @@
 
 <p align="center">
   <a href="#introduction">Introduction</a> •
-  <a href="#setup_and_installation">Setup and Installation</a> •
-  <a href="#code">Running the Code</a> •
-  <a href="#citation">Citation</a> •
+  <a href="#setup">Setup</a> •
+  <a href="#code">Code</a> •
+  <a href="#citation">Citation</a>
 </p>
 
-# Introduction
+## Introduction
 
 This repository contains the code associated with the research paper [Mutagenic: An Embedding-Based Approach to Protein Masking for Functional Redesign](https://openreview.net/pdf?id=0wy0QiPkKU). 
 
@@ -25,18 +25,18 @@ edit in the engineering of proteins with specific target functions? More formall
 We propose to tackle this problem by leveraging the breakthrough capabilities of protein foundation models, specifically the recently released [ESM-3](https://github.com/evolutionaryscale/esm) model. Inspired by interpretability approaches in the natural language processing literature, we leverage the representational
 learning capabilities of ESM-3 to create a novel pipeline that involves (1) masking the resides of the input protein and then (2) using ESM-3 to fill in these masks to achieve the target functionality. In particular, we propose to identify these masking sites via embedding-based similarity scores from the ESM-3 model. Please see our associated tiny paper for more details.  
 
-# Setup & Installation
+## Setup
 
-## Compute Requirements
+### Compute Requirements
 
 We ran all of our scripts on a machine equipped with a single Nvidia A100 GPU. Due to the size of the ESM-3 foundation model, we note that our scripts may not run on machines with less GPU memory. 
 
-## Getting Started
+### Getting Started
 
 To reproduce our experimental results, please first clone this repository on your machine
 
 ```
-git clone https://github.com/vihan-lakshman/mutagenic-experiments.git
+git clone https://github.com/rpan188/mutagenic.git
 ```
 
 Next, we __strongly__ recommend using a python virtual environment to manage all software dependencies. For example, you can create a virtual environment called `venv` as follows:
@@ -51,7 +51,7 @@ And then activate the environment with the command:
 source venv/bin/activate
 ```
 
-## Installing Dependencies
+### Installing Dependencies
 
 Once you have the virtualenv set up and `cd` into the repo, you can install all of the necessary software dependencies via the following command:
 
@@ -59,7 +59,7 @@ Once you have the virtualenv set up and `cd` into the repo, you can install all 
 pip3 install -r requirements.txt
 ```
 
-## Huggingface Hub Login
+### Huggingface Hub Login
 
 Finally, you will need to authenticate to Huggingface Hub to be able to use the ESM-3 model. After setting up a Huggingface Hub access token (if necessary), please run the following command and enter in your token when prompted:
 
@@ -67,7 +67,7 @@ Finally, you will need to authenticate to Huggingface Hub to be able to use the 
 huggingface-cli login
 ```
 
-# Running the Code
+## Code
 
 After completing all of the steps in the previous section, running the code to reproduce our results is fairly straightforward and involves running two python scripts. The first, called `functional_embeddings.py` will generate UMAP plots of Gene Ontology (GO) function terms, demonstrating that ESM3 functional
 embeddings can successfully distinguish between and relate different biological functions -- validating a core assumption behind the design of our pipeline. 
@@ -83,7 +83,7 @@ python3 masking_pipeline.py
 
 And that's it! Please file an issue or reach out to us via email if you encounter any issues. 
 
-# Citation
+## Citation
 ```
 @inproceedings{pan2025mutagenic,
   title={Mutagenic: An Embedding-Based Approach to Protein Masking for Functional Redesign},
@@ -93,6 +93,6 @@ And that's it! Please file an issue or reach out to us via email if you encounte
 }
 ```
 
-# License
+## License
 
 <a href="LICENSE">MIT License</a>
